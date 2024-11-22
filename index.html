@@ -1,23 +1,122 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Converted Layout</title>
-    <link rel="stylesheet" href="./styles/index_styles.css"> <!-- Link para o CSS -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mod Menu</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+    }
+
+    /* Estilo do botão de imagem */
+    #menu-button {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 80px;
+      height: 80px;
+      background-image: url('https://via.placeholder.com/100'); /* URL da imagem */
+      background-size: cover;
+      background-position: center;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+    }
+
+    /* Estilo do menu */
+    #mod-menu {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 300px;
+      padding: 20px;
+      background-color: #fff;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      border-radius: 10px;
+      display: none; /* Inicialmente escondido */
+      text-align: center;
+    }
+
+    #mod-menu h2 {
+      margin-bottom: 20px;
+    }
+
+    #mod-menu button {
+      padding: 10px;
+      width: 100px;
+      margin: 5px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    #mod-menu .button-container {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    #button-func1 {
+      background-color: #007BFF;
+      color: #fff;
+    }
+
+    #button-exit {
+      background-color: #FF0000;
+      color: #fff;
+    }
+
+    #button-close {
+      background-color: #FFA500;
+      color: #fff;
+    }
+  </style>
 </head>
 <body>
+  <!-- Botão de imagem -->
+  <button id="menu-button"></button>
 
-<div class="linear">
-    <div class="linear1">
-        <div class="linear2">
-            <div class="linear3">
-                <img id="imageview1" class="imageview" src="./imagems/imagem2.png" alt="Default Image">
-            </div>
-        </div>
+  <!-- Menu MOD -->
+  <div id="mod-menu">
+    <h2>MOD MENU</h2>
+    <button id="button-func1">Função 1</button>
+    <div class="button-container">
+      <button id="button-exit">Sair</button>
+      <button id="button-close">Fechar</button>
     </div>
-</div>
+  </div>
 
-<script src="./scripts/index_scripts.js"></script> <!-- Link para o JavaScript -->
+  <script>
+    // Referências aos elementos
+    const menuButton = document.getElementById("menu-button");
+    const modMenu = document.getElementById("mod-menu");
+    const buttonFunc1 = document.getElementById("button-func1");
+    const buttonExit = document.getElementById("button-exit");
+    const buttonClose = document.getElementById("button-close");
+
+    // Mostrar o menu ao clicar no botão de imagem
+    menuButton.addEventListener("click", () => {
+      modMenu.style.display = "block";
+    });
+
+    // Função do botão "Função 1"
+    buttonFunc1.addEventListener("click", () => {
+      alert("Função 1 ativada!");
+    });
+
+    // Fechar o menu e remover o botão de imagem ao clicar em "Sair"
+    buttonExit.addEventListener("click", () => {
+      modMenu.style.display = "none";
+      menuButton.style.display = "none";
+    });
+
+    // Apenas fechar o menu ao clicar em "Fechar"
+    buttonClose.addEventListener("click", () => {
+      modMenu.style.display = "none";
+    });
+  </script>
 </body>
 </html>
